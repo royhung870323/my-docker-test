@@ -1,0 +1,20 @@
+name: Docker CI 練習
+
+# 觸發條件：當我 push 代碼到 main 分支時
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # 使用 GitHub 提供的免費雲端 Linux
+
+    steps:
+      - name: 1. 下載我的程式碼
+        uses: actions/checkout@v4
+
+      - name: 2. 測試 Docker Build
+        run: |
+          # 這裡就是在跑你之前練習過的指令
+          docker build -t my-web-app .
+          echo "Docker 編譯成功！"
